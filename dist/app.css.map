@@ -1,0 +1,1 @@
+{"version":3,"file":"app.css","mappings":";;;AAAA;EACE;ACCF,C","sources":["webpack://metalamp-task-2/./src/blocks/test/test.scss","webpack://metalamp-task-2/./src/app.scss"],"sourcesContent":[".red-bg {\r\n  background: red;\r\n}",".red-bg {\n  background: red;\n}"],"names":[],"sourceRoot":""}
