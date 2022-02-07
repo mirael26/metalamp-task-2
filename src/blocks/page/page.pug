@@ -1,0 +1,16 @@
+include ./../../utils/getMods.pug
+
+mixin page({ theme = none })
+  -
+    let mod = ''
+    if(theme != none) {
+      mod = getMods(theme, 'page')
+    }
+    
+  div(class= 'page' + mod)
+    block
+
+
+mixin page__column
+  div(class= 'page__column')
+    block

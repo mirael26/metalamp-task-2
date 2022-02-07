@@ -1,0 +1,16 @@
+-
+  const getMods = function(mods, name) {
+    let modsList = ''
+
+    if (Array.isArray(mods)) {
+      mods.forEach(mod => {
+        modsList += ' ' + name + '--' + mod;
+      })
+    }
+
+    if (typeof mods == 'string') {
+      modsList += ' ' + name + '--' + mods;
+    }
+
+    return modsList;
+  }

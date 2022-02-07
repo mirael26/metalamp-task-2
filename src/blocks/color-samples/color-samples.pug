@@ -1,0 +1,8 @@
+mixin color-samples({ colors })
+  ul
+    each color in colors
+      li.color-samples__item
+        div(class= `color-samples__spot color-samples__spot--${color.color}`)
+        div.color-samples__text-container
+          h3.color-samples__title= color.title
+          p.color-samples__text= color.colorText

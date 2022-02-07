@@ -1,0 +1,16 @@
+.page {
+  &--uikit {
+    width: 1160px;
+    margin: 145px auto;
+  }
+
+  &--uikit-colors {
+    display: flex;
+    justify-content: space-between;
+    width: 1132px;
+  }
+}
+
+.page--uikit-colors .page__column {
+  width: 436px;
+}
