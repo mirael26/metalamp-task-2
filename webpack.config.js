@@ -57,6 +57,10 @@ module.exports = {
         options: {
           name: 'img/[name].[ext]'
         }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
       }
     ]
   },
