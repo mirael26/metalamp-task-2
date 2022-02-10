@@ -46,21 +46,25 @@ module.exports = {
           {
             loader: "pug-html-loader",
             options: {
-              "pretty": true
+              pretty: true,
+              exports: false
             }
           }
         ]
       },
       {
-        test: /\.(jpg|png|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: 'img/[name].[ext]'
+        test: /\.(jpg|png|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
         }
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
+        }
       }
     ]
   },
