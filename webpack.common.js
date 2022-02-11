@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 const miniCss = require('mini-css-extract-plugin');
 
 const PATHS = {
@@ -12,19 +11,9 @@ module.exports = {
   entry: './src/app.js',
   output: {
     filename: 'bundle.js',
-    path: PATHS.dist
+    path: PATHS.dist,
+    clean: true,  
   },
-  mode: 'development',
-  devServer: {
-    static: {
-      directory: PATHS.dist
-    },    
-    watchFiles: ['src/**/*.pug', 'src/**/*.scss'],
-    open: false,
-    port: 1337,
-    historyApiFallback: true
-  },
-  devtool: 'source-map',
   
   module: {
     rules: [
@@ -69,10 +58,10 @@ module.exports = {
     ]
   },
   plugins: [
-     new miniCss({
-        filename: 'app.css'
-     }),
-     new HtmlWebpackPlugin({
+    new miniCss({
+      filename: 'app.css'
+    }),
+    new HtmlWebpackPlugin({
       template: `${PATHS.src}/uikit.pug`,
       filename: 'uikit.html',
       inject: true
