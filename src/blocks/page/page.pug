@@ -1,4 +1,5 @@
 include ./../../utils/getMods.pug
+include ../logo/logo.pug
 
 mixin page({ theme = none })
   -
@@ -8,6 +9,10 @@ mixin page({ theme = none })
     }
     
   div(class= 'page' + mod)
+    if(theme=="uikit" || theme.includes("uikit"))
+      div.page__logo
+        +logo({ theme:"small" })
+    //- div.page__container
     block
 
 
