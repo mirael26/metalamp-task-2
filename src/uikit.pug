@@ -3,6 +3,7 @@ include ./mocks.pug
 include ./blocks/text-field/text-field.pug
 include ./blocks/page/page.pug
 include ./blocks/color-samples/color-samples.pug
+include ./blocks/text-samples/text-samples.pug
 
 doctype html
 html(lang="ru")
@@ -15,5 +16,6 @@ html(lang="ru")
       +page__column
         +color-samples({ colors: COLOR_SAMPLES })
       +page__column
+        +text-samples
 
     +text-field({ label:"Text field", id:"kit-text-field" })(type="email", placeholder="Email", name="email-input")
