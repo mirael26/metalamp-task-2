@@ -1,0 +1,18 @@
+.ui-colors-type {
+  position: relative;
+  width: 1440px;
+  height: 900px;
+  padding: 145px 158px 145px 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ui-colors-type__logo {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.ui-colors-type__col {
+  width: 436px;
+}

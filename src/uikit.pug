@@ -1,9 +1,13 @@
 include ./mocks.pug
 
-include ./blocks/text-field/text-field.pug
-include ./blocks/page/page.pug
+include ./utils/getMods.pug
+
+
+include ./blocks/ui-colors-type/ui-colors-type.pug
 include ./blocks/color-samples/color-samples.pug
 include ./blocks/text-samples/text-samples.pug
+include ./blocks/ui-forms/ui-forms.pug
+include ./blocks/text-field/text-field.pug
 
 doctype html
 html(lang="ru")
@@ -12,10 +16,8 @@ html(lang="ru")
     title= "UI kit"
   body
     h1.visually-hidden UIkit page
-    +page({ theme: ["uikit", "uikit-colors"] })
-      +page__column
-        +color-samples({ colors: COLOR_SAMPLES })
-      +page__column
-        +text-samples
+    +ui-colors-type
+    hr
+    +ui-forms
 
-    +text-field({ label:"Text field", id:"kit-text-field" })(type="email", placeholder="Email", name="email-input")
+    

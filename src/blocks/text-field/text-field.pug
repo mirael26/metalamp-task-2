@@ -1,0 +1,11 @@
+mixin text-field({label, id, theme=none})
+  -
+    let mod = ''
+    if(theme != none) {
+      mod = getMods(theme, 'page')
+    }
+
+  div.text-field
+    label.text-field__label(for= id)= label
+    block
+    input.text-field__input(id= id)&attributes(attributes)

@@ -1,0 +1,15 @@
+include ../logo/logo.pug
+
+mixin ui-forms
+  .ui-forms
+    .ui-forms__logo
+      +logo({ theme:"small" })
+    .ui-forms__col
+      +text-field({ label:"Text field", id:"ui-text-field" })(type="email", placeholder="Email", name="email-input")
+        span.text-field__ui-caption Default
+        
+      +text-field({ label:"Text field", id:"ui-text-field-hover", theme:"hover" })(type="email", name="email-input", value="This is pretty awesome")
+        span.text-field__ui-caption Hover / Focus
+    .ui-forms__col
+    .ui-forms__col
+    .ui-forms__bottom

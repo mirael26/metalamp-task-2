@@ -1,0 +1,10 @@
+include ../logo/logo.pug
+
+mixin ui-colors-type
+  .ui-colors-type
+    .ui-colors-type__logo
+      +logo({ theme:"small" })
+    .ui-colors-type__col      
+      +color-samples({ colors: COLOR_SAMPLES })
+    .ui-colors-type__col      
+      +text-samples

@@ -5,11 +5,9 @@
 }
 
 .text-samples__title {
-  @include body-text;
-
+  @include placeholder;
   width: 37px;
   margin-right: 30px;
-  color: $dark-shade-25;
   text-align: right;
 }
 
@@ -42,5 +40,5 @@
 }
 
 .text-samples__item--body .text-samples__text {
-  @include body-text;
+  @include text;
 }

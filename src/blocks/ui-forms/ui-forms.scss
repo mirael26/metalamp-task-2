@@ -1,0 +1,27 @@
+.ui-forms {
+  position: relative;
+  width: 1440px;
+  height: 900px;
+  padding: 143px 141px 140px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ui-forms__logo {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.ui-forms__col {
+  width: 320px;
+  margin-right: auto;
+
+  &:nth-child(2) {
+    margin-right: 72px;
+  }
+}
+
+.ui-forms__bottom {
+  width: 100%;
+}
