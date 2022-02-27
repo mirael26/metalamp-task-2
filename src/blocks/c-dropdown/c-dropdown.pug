@@ -1,0 +1,31 @@
+mixin c-dropdown({ theme, label=none, value, isOpen=false})
+  
+  - let openClass = isOpen ? 'open' : '';
+  - let facilitiesClass = theme === 'facilities' ? 'c-dropdown--facilities' : '';
+  - let guestsClass = theme === 'guests' ? 'c-dropdown--guests' : '';
+  
+  .c-dropdown(class= [openClass, facilitiesClass, guestsClass])
+    if label != none
+      label.c-dropdown__label= label
+    .c-dropdown__body
+      .c-dropdown__header
+        p.c-dropdown__title= value.title
+
+    
+      .c-dropdown__main
+        ul.c-dropdown__list
+          each item in value.items
+            li.c-dropdown__item
+              h3.c-dropdown__item-title= item.name
+              .c-dropdown__counter
+                if item.value == 0
+                  button.c-dropdown__decrement(disabled)
+                else
+                  button.c-dropdown__decrement
+                p.c-dropdown__count= item.value
+                button.c-dropdown__increment
+
+        if theme === 'guests'
+          .c-dropdown__control
+            button.c-dropdown__clean.hidden Очистить
+            button.c-dropdown__confirm Применить

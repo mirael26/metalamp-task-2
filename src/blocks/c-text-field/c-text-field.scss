@@ -1,16 +1,16 @@
-.text-field {
+.c-text-field {
   position: relative;
   max-width: 320px;
 }
 
-.text-field__label {
+.c-text-field__label {
   @include h3;
   display: block;
   text-transform: uppercase;
   margin-bottom: 5px;
 }
 
-.text-field__ui-caption {
+.c-text-field__ui-caption {
   @include text-light;
   position: absolute;
   top: 0px;
@@ -18,10 +18,10 @@
   text-transform: uppercase;
 }
 
-.text-field__input {
+.c-text-field__input {
   @include text;
   width: 100%;
-  padding: 13px 15px;
+  padding: 9px 15px;
   border: 1px solid $dark-shade-25;
   border-radius: 4px;
 

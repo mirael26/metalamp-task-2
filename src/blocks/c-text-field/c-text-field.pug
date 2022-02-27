@@ -1,0 +1,12 @@
+mixin c-text-field({label=none, id, theme=none})
+  -
+    let inputMod = ''
+    if(theme != none) {
+      inputMod = getMods(theme, 'c-text-field__input')
+    }
+
+  .c-text-field
+    if label != none
+      label.c-text-field__label(for= id)= label
+    block
+    input.c-text-field__input(class=inputMod, id= id)&attributes(attributes)
