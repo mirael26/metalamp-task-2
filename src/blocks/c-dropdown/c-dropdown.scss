@@ -66,6 +66,10 @@
   display: block;
 }
 
+.c-dropdown__list {
+  margin-bottom: 12px;
+}
+
 .c-dropdown__item {
   display: flex;
   justify-content: space-between;
@@ -106,4 +110,24 @@
 
 .c-dropdown__increment {  
   background-image: url('img/counter-plus.svg');
+}
+
+.c-dropdown__control {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+
+.c-dropdown__clean,
+.c-dropdown__confirm {
+  @include h3;
+  color: $purple;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.c-dropdown__confirm {
+  margin-left: auto;
 }

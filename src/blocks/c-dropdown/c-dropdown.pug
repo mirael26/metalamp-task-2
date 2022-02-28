@@ -27,5 +27,5 @@ mixin c-dropdown({ theme, label=none, value, isOpen=false})
 
         if theme === 'guests'
           .c-dropdown__control
-            button.c-dropdown__clean.hidden Очистить
+            button.c-dropdown__clean(class= (value.title == 'Сколько гостей') ? 'hidden' : '') Очистить
             button.c-dropdown__confirm Применить

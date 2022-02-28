@@ -60,7 +60,10 @@ dropdowns.forEach((dropdown)=> {
   const title = dropdown.querySelector('.c-dropdown__title');
   const list = dropdown.querySelectorAll('.c-dropdown__item');
   const header = dropdown.querySelector('.c-dropdown__header');
-  const main = dropdown.querySelector('.c-dropdown__main')
+  const main = dropdown.querySelector('.c-dropdown__main');
+  const cleanButton = dropdown.querySelector('.c-dropdown__clean');
+  const confirmButton = dropdown.querySelector('.c-dropdown__confirm');
+  
   const data = {};
   let type = null;
   if (dropdown.classList.contains('c-dropdown--facilities')) {
@@ -80,7 +83,7 @@ dropdowns.forEach((dropdown)=> {
       dropdown.classList.add('open');
       main.style.display = 'block';
     }
-  })
+  });
 
   list.forEach((item) => {
     const name = item.querySelector('.c-dropdown__item-title');
@@ -89,6 +92,7 @@ dropdowns.forEach((dropdown)=> {
     const count = item.querySelector('.c-dropdown__count');
 
     data[name.textContent] = count.textContent;
+
     const changeTitle = () => {
       data[name.textContent] = count.textContent;
       if (type === 'guests') {
@@ -108,9 +112,13 @@ dropdowns.forEach((dropdown)=> {
       data[name.textContent] = count.textContent;
       if (count.textContent == 0) {
         decrementButton.disabled = true;
+
+        if (Object.values(data).every(value => value == 0)) {
+          cleanButton.classList.add('hidden');
+        }
       }
       changeTitle();
-    })
+    });
 
     incrementButton.onclick = (() => {
       count.textContent ++;
@@ -118,7 +126,31 @@ dropdowns.forEach((dropdown)=> {
       if (decrementButton.disabled = true) {
         decrementButton.disabled = false;
       }
+      
+      cleanButton.classList.contains('hidden') ? cleanButton.classList.remove('hidden') : '';
       changeTitle();
-    })
+    });
   })
+
+  if (type === 'guests') {
+    cleanButton.onclick = (() => {
+      list.forEach((item) => {
+        const count = item.querySelector('.c-dropdown__count');
+        const decrementButton = item.querySelector('.c-dropdown__decrement');
+
+        count.textContent = 0;    
+        title.textContent = 'Сколько гостей';             
+        decrementButton.disabled = true;
+      });
+      for (value in data) {
+        data[value] = 0;
+      }
+      cleanButton.classList.add('hidden');
+    });
+
+    confirmButton.onclick = (() => {
+      dropdown.classList.remove('open');
+      main.style.display = 'none';
+    });
+  }
 });
