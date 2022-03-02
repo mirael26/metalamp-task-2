@@ -8,19 +8,20 @@ mixin ui-forms
   .ui-forms
     .ui-forms__logo
       +logo({ theme:"small" })
-    .ui-forms__col
-      .ui-forms__text-field
-        +c-text-field({ label:"Text field", id:"ui-text-field" })(type="email", placeholder="Email", name="email-input")
-          span.c-text-field__ui-caption Default
-      
-      .ui-forms__text-field
-        +c-text-field({ label:"Text field", id:"ui-text-field-hover", theme:"hover" })(type="email", name="email-input", value="This is pretty awesome")
-          span.c-text-field__ui-caption Hover / Focus
+    .ui-forms__elements
+      .ui-forms__col
+        .ui-forms__text-field
+          +c-text-field({ label:"Text field", id:"ui-text-field", content:"email" })
+            span.c-text-field__ui-caption Default
+        
+        .ui-forms__text-field
+          +c-text-field({ label:"Text field", id:"ui-text-field-hover", theme:"hover", content:"email" })
+            span.c-text-field__ui-caption Hover / Focus
 
-      .ui-forms__dropdown
-        +c-dropdown({ theme: "guests", label: "Dropdown", value: DROPDOWN_GUESTS_FILLED, isOpen: true })
-      .ui-forms__dropdown
-        +c-dropdown({ theme: "facilities", label: "Dropdown", value: DROPDOWN_FACILITIES_DEFAULT, isOpen: true })
-    .ui-forms__col
-    .ui-forms__col
-    .ui-forms__bottom
+        .ui-forms__dropdown
+          +c-dropdown({ theme: "guests", label: "Dropdown", value: DROPDOWN_GUESTS_DEFAULT, isOpen: false })
+          
+
+    .ui-forms__dropdowns
+    .ui-forms__checkbox-lists
+    .ui-forms__other

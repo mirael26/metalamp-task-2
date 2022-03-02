@@ -1,4 +1,4 @@
-mixin c-text-field({label=none, id, theme=none})
+mixin c-text-field({label=none, id, theme=none, type='default', content, value=''})
   -
     let inputMod = ''
     if(theme != none) {
@@ -9,4 +9,12 @@ mixin c-text-field({label=none, id, theme=none})
     if label != none
       label.c-text-field__label(for= id)= label
     block
-    input.c-text-field__input(class=inputMod, id= id)&attributes(attributes)
+    case content 
+      when 'first-name'
+        input.c-text-field__input(class=inputMod, id= id)(type="text", placeholder="Имя", name="first-name-input", value= value)
+      when 'last-name'
+        input.c-text-field__input(class=inputMod, id= id)(type="text", placeholder="Фамилия", name="last-name-input", value= value)
+      when 'email'
+        input.c-text-field__input(class=inputMod, id= id)(type="email", placeholder="Email", name="email-input", value= value)
+      when 'password'
+        input.c-text-field__input(class=inputMod, id= id)(type="password", placeholder="Пароль", name="password-input", value= value)
