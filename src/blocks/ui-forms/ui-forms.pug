@@ -20,6 +20,10 @@ mixin ui-forms
 
         .ui-forms__dropdown
           +c-dropdown({ theme: "guests", label: "Dropdown", value: DROPDOWN_GUESTS_DEFAULT, isOpen: false })
+
+          
+        .ui-forms__text-field
+          +c-text-field({ label:"Masked text field", id:"ui-masked-text-field", type:"masked" })
           
 
     .ui-forms__dropdowns

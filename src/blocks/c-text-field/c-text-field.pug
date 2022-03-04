@@ -9,12 +9,17 @@ mixin c-text-field({label=none, id, theme=none, type='default', content, value='
     if label != none
       label.c-text-field__label(for= id)= label
     block
-    case content 
-      when 'first-name'
-        input.c-text-field__input(class=inputMod, id= id)(type="text", placeholder="Имя", name="first-name-input", value= value)
-      when 'last-name'
-        input.c-text-field__input(class=inputMod, id= id)(type="text", placeholder="Фамилия", name="last-name-input", value= value)
-      when 'email'
-        input.c-text-field__input(class=inputMod, id= id)(type="email", placeholder="Email", name="email-input", value= value)
-      when 'password'
-        input.c-text-field__input(class=inputMod, id= id)(type="password", placeholder="Пароль", name="password-input", value= value)
+    if type == 'default'
+      case content 
+        when 'first-name'
+          input.c-text-field__input(class=inputMod, id= id)(type="text", placeholder="Имя", name="first-name-input", value= value)
+        when 'last-name'
+          input.c-text-field__input(class=inputMod, id= id)(type="text", placeholder="Фамилия", name="last-name-input", value= value)
+        when 'email'
+          input.c-text-field__input(class=inputMod, id= id)(type="email", placeholder="Email", name="email-input", value= value)
+        when 'password'
+          input.c-text-field__input(class=inputMod, id= id)(type="password", placeholder="Пароль", name="password-input", value= value)
+
+    if type == 'masked'
+      input.c-text-field__masked-input(class=inputMod, id= id)(type="text", placeholder="ДД.ММ.ГГГГ", name="masked-input", value= value, 
+        pattern="{10}" title="Пожалуйста, введите полную дату")
