@@ -1,31 +1,47 @@
+include ../../consts.pug
+
 mixin c-dropdown({ theme, label=none, value, isOpen=false})
   
   - let openClass = isOpen ? 'open' : '';
-  - let facilitiesClass = theme === 'facilities' ? 'c-dropdown--facilities' : '';
-  - let guestsClass = theme === 'guests' ? 'c-dropdown--guests' : '';
-  
-  .c-dropdown(class= [openClass, facilitiesClass, guestsClass])
+  -
+    switch (theme) {
+      case 'guests':
+        value == undefind ? value = DROPDOWN_GUESTS_DEFAULT : '';
+        themeClass = 'c-dropdown--guests';
+        break;
+      case 'facilities':
+        value == undefind ? value = DROPDOWN_FACILITIES_DEFAULT : '';
+        themeClass = 'c-dropdown--facilities';
+        break;
+      case 'date':
+        value == undefind ? value = DATE_DROPDOWN_DEFAULT : '';
+        themeClass = 'c-dropdown--date';
+        break;
+    }
+    
+  .c-dropdown(class= [openClass, themeClass])
     if label != none
       label.c-dropdown__label= label
     .c-dropdown__body
       .c-dropdown__header
         p.c-dropdown__title= value.title
 
-    
-      .c-dropdown__main
-        ul.c-dropdown__list
-          each item in value.items
-            li.c-dropdown__item
-              h3.c-dropdown__item-title= item.name
-              .c-dropdown__counter
-                if item.value == 0
-                  button.c-dropdown__decrement(disabled)
-                else
-                  button.c-dropdown__decrement
-                p.c-dropdown__count= item.value
-                button.c-dropdown__increment
 
-        if theme === 'guests'
-          .c-dropdown__control
-            button.c-dropdown__clean(class= (value.title == 'Сколько гостей') ? 'hidden' : '') Очистить
-            button.c-dropdown__confirm Применить
+      if theme === 'guests' || 'facilities'
+        .c-dropdown__main
+          ul.c-dropdown__list
+            each item in value.items
+              li.c-dropdown__item
+                h3.c-dropdown__item-title= item.name
+                .c-dropdown__counter
+                  if item.value == 0
+                    button.c-dropdown__decrement(disabled)
+                  else
+                    button.c-dropdown__decrement
+                  p.c-dropdown__count= item.value
+                  button.c-dropdown__increment
+
+          if theme === 'guests'
+            .c-dropdown__control
+              button.c-dropdown__clean(class= (value.title == 'Сколько гостей') ? 'hidden' : '') Очистить
+              button.c-dropdown__confirm Применить

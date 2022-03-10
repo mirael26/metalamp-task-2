@@ -133,7 +133,8 @@ dropdowns.forEach((dropdown)=> {
   })
 
   if (type === 'guests') {
-    cleanButton.onclick = (() => {
+    console.log('Условие  гости соблюдено');
+    cleanButton.onclick = () => {
       list.forEach((item) => {
         const count = item.querySelector('.c-dropdown__count');
         const decrementButton = item.querySelector('.c-dropdown__decrement');
@@ -146,11 +147,11 @@ dropdowns.forEach((dropdown)=> {
         data[value] = 0;
       }
       cleanButton.classList.add('hidden');
-    });
+    };
 
-    confirmButton.onclick = (() => {
+    confirmButton.onclick = () => {
       dropdown.classList.remove('open');
       main.style.display = 'none';
-    });
+    };
   }
 });

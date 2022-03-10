@@ -2,7 +2,7 @@ include ../logo/logo.pug
 include ../c-text-field/c-text-field.pug
 include ../c-dropdown/c-dropdown.pug
 
-include ../../mocks.pug
+include ../../consts.pug
 
 mixin ui-forms
   .ui-forms
@@ -19,11 +19,18 @@ mixin ui-forms
             span.c-text-field__ui-caption Hover / Focus
 
         .ui-forms__dropdown
-          +c-dropdown({ theme: "guests", label: "Dropdown", value: DROPDOWN_GUESTS_DEFAULT, isOpen: false })
+          +c-dropdown({ theme: "guests", label: "Dropdown", isOpen: false })
 
           
         .ui-forms__text-field
           +c-text-field({ label:"Masked text field", id:"ui-masked-text-field", type:"masked" })
+
+        //- .ui-forms__date-dropdowns
+        //-   .ui-forms__date-dropdown
+        //-     +c-dropdown({ theme: "date", label: "Date dropdown", value: DATE_DROPDOWN_FILLED })
+            
+        //-   .ui-forms__date-dropdown
+        //-     +c-dropdown({ theme: "date", label: "Date dropdown" })
           
 
     .ui-forms__dropdowns
