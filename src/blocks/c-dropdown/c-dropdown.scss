@@ -4,6 +4,10 @@
   &--facilities {
     width: 266px;
   }
+
+  &--date {
+    width: 150px;
+  }
 }
 
 .c-dropdown__body {  
@@ -12,7 +16,8 @@
   background-color: #ffffff;
 }
 
-.c-dropdown.open .c-dropdown__body {  
+.c-dropdown--guests.open .c-dropdown__body,
+.c-dropdown--facilities.open .c-dropdown__body {  
   border: 1px solid $dark-shade-50;
   box-shadow: 0px 10px 20px 0px #1F20410D;
 }

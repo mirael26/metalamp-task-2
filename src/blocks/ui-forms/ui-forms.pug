@@ -25,12 +25,15 @@ mixin ui-forms
         .ui-forms__text-field
           +c-text-field({ label:"Masked text field", id:"ui-masked-text-field", type:"masked" })
 
-        //- .ui-forms__date-dropdowns
-        //-   .ui-forms__date-dropdown
-        //-     +c-dropdown({ theme: "date", label: "Date dropdown", value: DATE_DROPDOWN_FILLED })
+        .ui-forms__date-dropdowns
+          .ui-forms__date-dropdown
+            +c-dropdown({ theme: "date", label: "Date dropdown" })
             
-        //-   .ui-forms__date-dropdown
-        //-     +c-dropdown({ theme: "date", label: "Date dropdown" })
+          .ui-forms__date-dropdown
+            +c-dropdown({ theme: "date", value: DATE_DROPDOWN_FILLED, label: "Date dropdown" })
+        
+        .ui-forms__filter-date-dropdown
+            +c-dropdown({ theme: "filter-date", label: "Date dropdown" })
           
 
     .ui-forms__dropdowns

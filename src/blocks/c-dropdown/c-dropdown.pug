@@ -1,33 +1,45 @@
 include ../../consts.pug
 
-mixin c-dropdown({ theme, label=none, value, isOpen=false})
+-
+  const today = new Date();
+  const fourDaysAfterToday = new Date();
+  fourDaysAfterToday.setDate(fourDaysAfterToday.getDate() + 4);
+  const filterDateDefault = {
+    title: `${getHumanityDate(today)} - ${getHumanityDate(fourDaysAfterToday)}`
+  }
+
+mixin c-dropdown({ theme, label=null, value=null, isOpen=false})
   
   - let openClass = isOpen ? 'open' : '';
   -
     switch (theme) {
       case 'guests':
-        value == undefind ? value = DROPDOWN_GUESTS_DEFAULT : '';
+        value == null ? value = DROPDOWN_GUESTS_DEFAULT : '';
         themeClass = 'c-dropdown--guests';
         break;
       case 'facilities':
-        value == undefind ? value = DROPDOWN_FACILITIES_DEFAULT : '';
+        value == null ? value = DROPDOWN_FACILITIES_DEFAULT : '';
         themeClass = 'c-dropdown--facilities';
         break;
       case 'date':
-        value == undefind ? value = DATE_DROPDOWN_DEFAULT : '';
+        value == null ? value = DATE_DROPDOWN_DEFAULT : '';
         themeClass = 'c-dropdown--date';
+        break;
+      case 'filter-date':
+        value == null ? value = filterDateDefault : '';
+        themeClass = 'c-dropdown--filter-date';
         break;
     }
     
   .c-dropdown(class= [openClass, themeClass])
-    if label != none
+    if label !== null
       label.c-dropdown__label= label
     .c-dropdown__body
       .c-dropdown__header
         p.c-dropdown__title= value.title
 
 
-      if theme === 'guests' || 'facilities'
+      if theme === 'guests' || theme === 'facilities'
         .c-dropdown__main
           ul.c-dropdown__list
             each item in value.items
@@ -45,3 +57,6 @@ mixin c-dropdown({ theme, label=none, value, isOpen=false})
             .c-dropdown__control
               button.c-dropdown__clean(class= (value.title == 'Сколько гостей') ? 'hidden' : '') Очистить
               button.c-dropdown__confirm Применить
+
+
+
