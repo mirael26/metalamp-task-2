@@ -15,7 +15,7 @@ mixin ui-forms
             span.c-text-field__ui-caption Default
         
         .ui-forms__text-field
-          +c-text-field({ label:"Text field", id:"ui-text-field-hover", theme:"hover", content:"email" })
+          +c-text-field({ label:"Text field", id:"ui-text-field-hover", theme:"hover", content:"email", value:"This is pretty awesome" })
             span.c-text-field__ui-caption Hover / Focus
 
         .ui-forms__dropdown
@@ -33,7 +33,10 @@ mixin ui-forms
             +c-dropdown({ theme: "date", value: DATE_DROPDOWN_FILLED, label: "Date dropdown" })
         
         .ui-forms__filter-date-dropdown
-            +c-dropdown({ theme: "filter-date", label: "Date dropdown" })
+          +c-dropdown({ theme: "filter-date", label: "Date dropdown" })
+
+        .ui-forms__subscription-text-field
+          +c-text-field({ label:"Subscription text field", id:"ui-subscription-text-field", type:"subscription"})
           
 
     .ui-forms__dropdowns

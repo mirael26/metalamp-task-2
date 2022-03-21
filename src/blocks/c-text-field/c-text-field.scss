@@ -37,3 +37,16 @@
     border-color: $dark-shade-50;
   }
 }
+
+.c-text-field__subscribe-button {
+  position: absolute;
+  bottom: 14px;
+  right: 13px;
+  width: 18px;
+  height: 18px;
+  background-image: url('img/arrow-forward.svg');  
+  
+  &:focus {
+    opacity: 0.5;
+  }
+}

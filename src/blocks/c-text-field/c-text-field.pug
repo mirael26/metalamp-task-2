@@ -23,3 +23,9 @@ mixin c-text-field({label=none, id, theme=none, type='default', content, value='
     if type == 'masked'
       input.c-text-field__masked-input(class=inputMod, id= id)(type="text", placeholder="ДД.ММ.ГГГГ", name="masked-input", value= value, 
         pattern="{10}" title="Пожалуйста, введите полную дату")
+
+    if type == 'subscription'
+      input.c-text-field__input(class=inputMod, id= id)(type="email", placeholder="Email", name="email-input", value= value)
+      button.c-text-field__subscribe-button
+        span.visually-hidden Подписаться
+
