@@ -13,6 +13,11 @@
   left: 30px;
 }
 
+.ui-forms__elements {
+  display: flex;
+  width: 100%;
+}
+
 .ui-forms__col {
   width: 320px;
   margin-right: auto;
@@ -40,4 +45,17 @@
 
 .ui-forms__other {
   width: 100%;
+}
+
+.ui-forms__label {  
+  @include h3;
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+// .ui-forms__checkbox-buttons {}
+
+.ui-forms__checkbox-buttons li {
+  margin-bottom: 10px;
 }

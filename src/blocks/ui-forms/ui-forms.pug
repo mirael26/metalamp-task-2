@@ -1,6 +1,7 @@
 include ../logo/logo.pug
 include ../c-text-field/c-text-field.pug
 include ../c-dropdown/c-dropdown.pug
+include ../c-checkbox-button/c-checkbox-button.pug
 
 include ../../consts.pug
 
@@ -37,6 +38,16 @@ mixin ui-forms
 
         .ui-forms__subscription-text-field
           +c-text-field({ label:"Subscription text field", id:"ui-subscription-text-field", type:"subscription"})
+
+      .ui-forms__col
+        .ui-forms__checkbox-buttons
+          span.ui-forms__label Checkbox Buttons
+          ul
+            each item in CHECKBOX_HOUSE_RULES
+              li
+                +c-checkbox-button( item )
+
+      .ui-forms__col
           
 
     .ui-forms__dropdowns

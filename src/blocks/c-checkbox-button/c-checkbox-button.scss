@@ -1,0 +1,25 @@
+.c-checkbox-button {
+  display: flex;
+}
+
+.c-checkbox-button__checkbox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right: 9px;
+  border: 1px solid $dark-shade-25;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &--checked {
+    border-color: $purple;
+    background-image: url('img/tick.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+
+  }
+}
+
+.c-checkbox-button__title {
+  @include text-light;
+}

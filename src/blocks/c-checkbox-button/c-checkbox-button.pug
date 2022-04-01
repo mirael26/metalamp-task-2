@@ -1,0 +1,5 @@
+mixin c-checkbox-button({name, title, checked=false})
+  .c-checkbox-button
+    .c-checkbox-button__checkbox(class= checked ? 'c-checkbox-button__checkbox--checked' : '')
+    input(type='checkbox', name= name, id= name, checked= checked).visually-hidden.checkbox-button__input
+    label.c-checkbox-button__title(for= name)= title
