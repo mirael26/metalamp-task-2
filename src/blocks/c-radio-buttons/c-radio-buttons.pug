@@ -1,0 +1,15 @@
+mixin c-radio-buttons({label=null, content})
+
+  - content.checked === undefined ? content.checked = content.items[0].name : '';
+
+  .c-radio-buttons
+    if label !== null
+      label.c-radio-buttons__label= label
+
+    ul.c-radio-buttons__list
+      each item in content.items
+        - const isChecked = (item.name === content.checked);
+        li.c-radio-buttons__item
+          .c-radio-buttons__radio(class= isChecked ? 'c-radio-buttons__radio--checked' : '')
+          input(type= 'radio', name= 'gender', id= item.name, value= item.name, checked= isChecked).visually-hidden.c-radio-buttons__input
+          label(for= item.name).c-radio-buttons__title= item.title

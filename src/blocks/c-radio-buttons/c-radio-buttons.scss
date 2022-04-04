@@ -1,0 +1,54 @@
+.c-radio-buttons__label {
+  @include h3;
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.c-radio-buttons__list {
+  display: flex;
+}
+
+.c-radio-buttons__item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.c-radio-buttons__radio {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 1px solid $dark-shade-25;
+  border-radius: 50%;
+  
+  &--checked {
+    border-color: $purple;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(180deg, $purple 0%, #8BA4F9 100%);
+      border-radius: 50%;
+    }
+  }
+}
+
+.c-radio-buttons__radio-marker {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(180deg, $purple 0%, #8BA4F9 100%);
+  border-radius: 50%;
+}
+
+.c-radio-buttons__title {
+  @include text;
+}
